@@ -79,3 +79,4 @@ C:\Users\igork\Desktop\programming\ITrellis_Igor\ITrellis_Igor\bin\Antlr3.Runtim
 C:\Users\igork\Desktop\programming\ITrellis_Igor\ITrellis_Igor\bin\Newtonsoft.Json.xml
 C:\Users\igork\Desktop\programming\ITrellis_Igor\ITrellis_Igor\obj\Debug\ITrellis_Igor.dll
 C:\Users\igork\Desktop\programming\ITrellis_Igor\ITrellis_Igor\obj\Debug\ITrellis_Igor.pdb
+C:\Users\igork\Desktop\programming\ITrellis_Igor\ITrellis_Igor\obj\Debug\ITrellis_Igor.csprojResolveAssemblyReference.cache

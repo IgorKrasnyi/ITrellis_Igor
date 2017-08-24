@@ -22,7 +22,7 @@ namespace ITrellis_Igor.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "My contact page.";
+            ViewBag.Message = "Contact Information.";
 
             return View();
         }
