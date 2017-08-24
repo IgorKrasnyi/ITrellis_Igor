@@ -1,0 +1,100 @@
+﻿@model IEnumerable<ITrellis_Igor.Models.Task>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>TODO Task List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <H2>Completed Tasks</H2>
+        </th>
+        <th colspan="3"></th>
+    </tr>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DueDate)
+        </th>
+        <th></th>
+    </tr>
+        @foreach (var item in ViewData["CompletedTasks"] as List<ITrellis_Igor.Models.Task>)
+        {
+            string selectedRow = "";
+            if (item.ID == ViewBag.ID)
+            {
+                selectedRow = "warning";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DueDate)
+                </td>
+                <td>
+                    @Html.ActionLink("InComplete", "Complete", new { id = item.ID, isCompleted = false }) |
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+    <tr>
+        <th>
+            <H2>TODO Tasks</H2>
+        </th>
+        <th colspan="3"></th>
+    </tr>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DueDate)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in ViewData["NotCompletedTasks"] as List<ITrellis_Igor.Models.Task>)
+    {
+        string selectedRow = "";
+        if (item.DueDate < DateTime.Now)
+        {
+            selectedRow = "success";
+        }
+        <tr class="@selectedRow">
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DueDate)
+            </td>
+            <td>
+                @Html.ActionLink("Complete", "Complete", new { id = item.ID, isCompleted = true }) |
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>
